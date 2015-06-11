@@ -1,0 +1,87 @@
+c:\users\marta\documents\visual studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe.config
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.pdb
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\MetroFramework.dll
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\System.Data.SQLite.dll
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\System.Data.SQLite.xml
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csprojResolveAssemblyReference.cache
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.Properties.Resources.resources
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csproj.GenerateResource.Cache
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.exe
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.pdb
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.KeepIt.resources
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe.config
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.exe
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.pdb
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csprojResolveAssemblyReference.cache
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.KeepIt.resources
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.Properties.Resources.resources
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csproj.GenerateResource.Cache
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.pdb
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\MetroFramework.dll
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\System.Data.SQLite.dll
+C:\Users\marts_000\Documents\Visual Studio 2015\Projects\WindowsKeepApplication\WindowsKeepApplication\bin\Debug\System.Data.SQLite.xml
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe.config
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.exe
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.pdb
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.pdb
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\bin\Debug\MetroFramework.dll
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\bin\Debug\System.Data.SQLite.dll
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\bin\Debug\System.Data.SQLite.xml
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csprojResolveAssemblyReference.cache
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.KeepIt.resources
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.Properties.Resources.resources
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApplication1\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csproj.GenerateResource.Cache
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe.config
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.exe
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.pdb
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.pdb
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\bin\Debug\MetroFramework.dll
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\bin\Debug\System.Data.SQLite.dll
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\bin\Debug\System.Data.SQLite.xml
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csprojResolveAssemblyReference.cache
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.KeepIt.resources
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.Properties.Resources.resources
+C:\Users\Marta\Documents\Visual Studio 2015\Projects\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csproj.GenerateResource.Cache
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe.config
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.exe
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.pdb
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.pdb
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\MetroFramework.dll
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\System.Data.SQLite.dll
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\System.Data.SQLite.xml
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csprojResolveAssemblyReference.cache
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.KeepIt.resources
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.Properties.Resources.resources
+C:\Users\Michal\Downloads\WindowsKeepApp_new-2015-06-04\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csproj.GenerateResource.Cache
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe.config
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.exe
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.pdb
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.pdb
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\MetroFramework.dll
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\System.Data.SQLite.dll
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\bin\Debug\System.Data.SQLite.xml
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csprojResolveAssemblyReference.cache
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.KeepIt.resources
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.Properties.Resources.resources
+C:\Users\Michal\Documents\Visual Studio 2015\Projects\WindowsKeepApp_new\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csproj.GenerateResource.Cache
+C:\Users\Marta\Documents\GitHub\KeepApp\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe.config
+C:\Users\Marta\Documents\GitHub\KeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.exe
+C:\Users\Marta\Documents\GitHub\KeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.pdb
