@@ -17,7 +17,7 @@ namespace WindowsKeepApplication
         DatabaseConnection m_db;
         NoteCreator m_noteCreator = new NoteCreator();
         public int noteContainerY = 135;
-        Stack<NoteContainer> noteContainerStack = new Stack<NoteContainer>();
+        Dictionary<int, NoteContainer> noteContainerDictionary = new Dictionary<int, NoteContainer>();
         public MetroFramework.Controls.MetroButton noteDeleteButton;
 
         public KeepIt(DatabaseConnection db)
@@ -47,7 +47,7 @@ namespace WindowsKeepApplication
         private void noteSubmitButton_Click(object sender, EventArgs e)
         {
             createNote();
-            deleteNotes();
+            //deleteNotes();
             retrieveNotes();
             closeForm();
         }
@@ -97,14 +97,16 @@ namespace WindowsKeepApplication
             int x = 0;
             int y = 0;
             int i = 0;
-            
+
+
             while (reader.Read())
             {
                 int usedSpace = i * 183 + 23;
                 int freeSpace = Size.Width - usedSpace;
-                Note note = new Note(reader["id"].ToString(), reader["category"].ToString(), reader["title"].ToString(), reader["color"].ToString());
+                
+                Note note = new Note(reader.GetInt32(0), reader["category"].ToString(), reader["title"].ToString(), reader["color"].ToString());
                 string noteItems = note.Items(m_db.m_dbConnection);
-
+                noteItems = reader.GetInt32(0).ToString();
                 if (freeSpace > 183)
                 {
                     x = i * 183;
@@ -119,29 +121,27 @@ namespace WindowsKeepApplication
 
                 NoteContainer noteContainer = new NoteContainer(note, new Point(23 + x, noteContainerY + y), noteItems);
                 this.Controls.Add(noteContainer);
-
-                noteContainerStack.Push(noteContainer);
+                noteContainerDictionary.Add(reader.GetInt32(0), noteContainer);
             }
         }
 
-        private void deleteNotes()
-        {
-            foreach(NoteContainer noteContainer in noteContainerStack)
-            {
-                this.Controls.Remove(noteContainer);
-            }
-            noteContainerStack.Clear();
-        }
+        //private void deleteNotes()
+        //{
+        //    foreach(NoteContainer noteContainer in noteContainerStack)
+        //    {
+        //        this.Controls.Remove(noteContainer);
+        //    }
+        //    noteContainerStack.Clear();
+        //}
 
         public void deleteNote()
         {
-            NoteContainer noteContainer = noteContainerStack.Peek();
+            NoteContainer noteContainer = noteContainerDictionary[6];
             this.Controls.Remove(noteContainer);
-            noteContainerStack.Pop();
+            noteContainerDictionary.Remove(6);
             SQLiteCommand insertSQL = new SQLiteCommand("DELETE FROM notes WHERE id = @noteId", m_db.m_dbConnection);
-            insertSQL.Parameters.Add(new SQLiteParameter("@noteId", "1"));
+            insertSQL.Parameters.Add(new SQLiteParameter("@noteId", 6));
             insertSQL.ExecuteNonQuery();
         }
-
     }
 }

@@ -31,7 +31,7 @@ namespace WindowsKeepApplication
         private void SetDefaultAttributes()
         {
             this.Location = m_location;
-            this.Name = "NoteContainer" + m_note.m_id;
+            this.Name = "NoteContainer" + m_note.m_id.ToString();
             this.Size = new Size(160, 200);
         }
 
@@ -39,7 +39,7 @@ namespace WindowsKeepApplication
         {
             MetroFramework.Controls.MetroTextBox noteContainerText = new MetroFramework.Controls.MetroTextBox();
             noteContainerText.Location = new Point(0, 30);
-            noteContainerText.Name = "NoteContainerText" + m_note.m_id;
+            noteContainerText.Name = "NoteContainerText" + m_note.m_id.ToString();
             noteContainerText.Size = new Size(160, 170);
             noteContainerText.Multiline = true;
             noteContainerText.Text = m_noteItems;
@@ -50,7 +50,7 @@ namespace WindowsKeepApplication
         {
             MetroFramework.Controls.MetroTextBox noteContainerTitle = new MetroFramework.Controls.MetroTextBox();
             noteContainerTitle.Location = new Point(0, 0);
-            noteContainerTitle.Name = "noteContainerTitle" + m_note.m_id;
+            noteContainerTitle.Name = "noteContainerTitle" + m_note.m_id.ToString();
             noteContainerTitle.Size = new Size(160, 30);
             noteContainerTitle.Multiline = true;
             noteContainerTitle.Text = m_note.m_title;

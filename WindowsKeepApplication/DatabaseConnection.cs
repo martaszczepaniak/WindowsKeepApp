@@ -30,7 +30,7 @@ namespace WindowsKeepApplication
 
         void createTables()
         {
-            string sql = "create table if not exists notes(id string PRIMARY KEY, category text, title text, color text)";
+            string sql = "create table if not exists notes(id integer PRIMARY KEY autoincrement, category text, title text, color text)";
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             command.ExecuteNonQuery();
             string sql2 = "create table if not exists items(id string PRIMARY KEY, text text, note_id string, FOREIGN KEY(note_id) REFERENCES notes(id) )";
