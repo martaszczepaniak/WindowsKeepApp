@@ -26,12 +26,10 @@ namespace WindowsKeepApplication
         public MetroFramework.Controls.MetroTextBox noteTitle;
         public MetroFramework.Controls.MetroTextBox noteText;
         public MetroFramework.Controls.MetroButton noteSubmitButton;
-
         public MetroFramework.Controls.MetroTextBox noteFormOpener;
 
         private void SetDefaultAttributes()
         {
-           
             this.Location = new Point(23, 63);
             this.Name = "NoteCreatorGroup";
             this.Size = new Size(554, 61);

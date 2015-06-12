@@ -14,18 +14,23 @@ namespace WindowsKeepApplication
     {
         Note m_note;
         Point m_location;
+        public int m_noteContainerId;
         string m_noteItems;
-        
+        public MetroFramework.Controls.MetroButton noteContainerDeleteButton = new MetroFramework.Controls.MetroButton();
 
-        public NoteContainer(Note note, Point location, string noteItems)
+
+        public NoteContainer(Note note, Point location, string noteItems, int noteContainerId)
         {
             m_note = note;
             m_location = location;
             m_noteItems = noteItems;
+            m_noteContainerId = noteContainerId;
+            //m_noteContainerId = m_note.m_id;
 
             SetDefaultAttributes();
             this.Controls.Add(CreateTitleTextBox());
             this.Controls.Add(CreateTextTextBox());
+            this.Controls.Add(CreateDeleteButton());
         }
 
         private void SetDefaultAttributes()
@@ -40,7 +45,7 @@ namespace WindowsKeepApplication
             MetroFramework.Controls.MetroTextBox noteContainerText = new MetroFramework.Controls.MetroTextBox();
             noteContainerText.Location = new Point(0, 30);
             noteContainerText.Name = "NoteContainerText" + m_note.m_id.ToString();
-            noteContainerText.Size = new Size(160, 170);
+            noteContainerText.Size = new Size(160, 150);
             noteContainerText.Multiline = true;
             noteContainerText.Text = m_noteItems;
             return noteContainerText;
@@ -56,5 +61,14 @@ namespace WindowsKeepApplication
             noteContainerTitle.Text = m_note.m_title;
             return noteContainerTitle;
         }
+
+        private MetroFramework.Controls.MetroButton CreateDeleteButton()
+        {
+            noteContainerDeleteButton.Location = new Point(140, 180);
+            noteContainerDeleteButton.Name = "noteContainerDeleteButton" + m_note.m_id.ToString();
+            noteContainerDeleteButton.Size = new Size(20, 20);
+            return noteContainerDeleteButton;
+        }
     }
+
 }

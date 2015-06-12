@@ -99,3 +99,17 @@ C:\Users\Marta\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\
 C:\Users\Marta\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.KeepIt.resources
 C:\Users\Marta\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.Properties.Resources.resources
 C:\Users\Marta\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csproj.GenerateResource.Cache
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe.config
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.exe
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.pdb
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.exe
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\bin\Debug\WindowsKeepApplication.pdb
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\bin\Debug\MetroFramework.Design.dll
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\bin\Debug\MetroFramework.dll
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\bin\Debug\System.Data.SQLite.dll
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\bin\Debug\System.Data.SQLite.xml
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csprojResolveAssemblyReference.cache
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.KeepIt.resources
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.Properties.Resources.resources
+C:\Users\marts_000\Documents\GitHub\WindowsKeepApp\WindowsKeepApplication\obj\Debug\WindowsKeepApplication.csproj.GenerateResource.Cache
