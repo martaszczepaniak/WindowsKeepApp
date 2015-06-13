@@ -15,99 +15,99 @@ namespace WindowsKeepApplication
     public partial class KeepIt : MetroForm
     {
         DatabaseConnection m_db;
-        NoteCreator m_noteCreator = new NoteCreator();
-        NoteContainer noteContainer;
-        Note note;
-        public int noteContainerY = 135;
-        Dictionary<int, NoteContainer> noteContainerDictionary = new Dictionary<int, NoteContainer>();
-        public MetroFramework.Controls.MetroButton noteDeleteButton;
 
+        public delegate void CreateNoteDelegate(string title);
+        public delegate void DeleteNoteDelegate(int noteId);
+        private DeleteNoteDelegate deleteNoteDelegate;
+
+        NoteCreator m_noteCreator;
+        NoteList m_noteList = new NoteList();
+        Dictionary<int, NoteContainer> m_noteContainerList = new Dictionary<int, NoteContainer>();
+
+        public MetroFramework.Controls.MetroTextBox noteFormOpener;
 
         public KeepIt(DatabaseConnection db)
         {
             m_db = db;
-            this.ClientSize = new Size(600, 450);
+            SetDefaultAttributes();
 
-            this.Name = "KeepIt";
-            this.Text = "KeepIt";
+            CreateNoteDelegate createNoteDelegate = CreateNote;
+            deleteNoteDelegate = DeleteNote;
 
-            this.Controls.Add(m_noteCreator);
-            m_noteCreator.CreateNoteFormOpener();
-            this.Controls.Add(m_noteCreator.noteFormOpener);
-            this.Controls.Add(CreateNoteDeleteButton());
+            m_noteCreator = new NoteCreator(createNoteDelegate);
+            Controls.Add(m_noteCreator);
 
-            m_noteCreator.noteSubmitButton.Click += new EventHandler(noteSubmitButton_Click);
-            m_noteCreator.noteFormOpener.Click += new EventHandler(noteFormOpener_Click);
-            this.noteDeleteButton.Click += new EventHandler(noteDeleteButton_Click);
-            retrieveNotes();
+            Controls.Add(CreateNoteFormOpener());
+
+            GetNotes();
+            RenderNoteContainers();
         }
 
-        private void noteFormOpener_Click(object sender, EventArgs e)
+        private void SetDefaultAttributes()
         {
-            openForm();
+            ClientSize = new Size(600, 450);
+            Name = "KeepIt";
+            Text = "KeepIt";
         }
 
-        private void noteSubmitButton_Click(object sender, EventArgs e)
-        {
-            createNote();
-            resetNotes();
-            closeForm();
-        }
+        // --------------------------- DELEGATED METHODS --------------------------
 
-        public MetroFramework.Controls.MetroButton CreateNoteDeleteButton()
-        {
-            noteDeleteButton = new MetroFramework.Controls.MetroButton();
-            noteDeleteButton.Location = new Point(554, 23);
-            noteDeleteButton.Name = "noteDeleteButton";
-            noteDeleteButton.Size = new Size(40, 38);
-            noteDeleteButton.UseCustomBackColor = true;
-            noteDeleteButton.BackColor = Color.Honeydew;
-            noteDeleteButton.Text = "delete";
-            return noteDeleteButton;
-        }
-
-        private void noteDeleteButton_Click(object sender, EventArgs e)
-        {
-            deleteNotes();
-        }
-
-        private void openForm()
-        {
-            m_noteCreator.Visible = true;
-            m_noteCreator.noteFormOpener.Visible = false;
-            m_noteCreator.noteTitle.Focus();
-        }
-
-        private void closeForm()
-        {
-            m_noteCreator.Visible = false;
-            m_noteCreator.noteFormOpener.Visible = true;
-            m_noteCreator.noteTitle.Text = "";
-        }
-
-        private void createNote()
+        public void CreateNote(string title)
         {
             SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO notes (title) VALUES (?)", m_db.m_dbConnection);
-            insertSQL.Parameters.AddWithValue("title", m_noteCreator.noteTitle.Text);
+            insertSQL.Parameters.AddWithValue("title", title);
             insertSQL.ExecuteNonQuery();
+            GetNotes();
+            RenderNoteContainers();
+            CloseForm();
         }
 
-        private void retrieveNotes()
+        private void GetNotes()
         {
             SQLiteCommand selectSQL = new SQLiteCommand("SELECT * FROM notes", m_db.m_dbConnection);
             SQLiteDataReader reader = selectSQL.ExecuteReader();
+            
+            m_noteList.Clear();
+
+            while (reader.Read())
+            {
+
+                Note note = new Note(reader.GetInt32(0), reader["category"].ToString(), reader["title"].ToString(), reader["color"].ToString());
+
+                m_noteList.Add(reader.GetInt32(0), note);
+            }
+        }
+
+        private void DeleteNote(int noteId)
+        {
+            SQLiteCommand deleteSQL = new SQLiteCommand("DELETE FROM notes WHERE id = @id", m_db.m_dbConnection);
+            deleteSQL.Parameters.AddWithValue("id", noteId);
+            deleteSQL.ExecuteNonQuery();
+            GetNotes();
+            RenderNoteContainers();
+        }
+        
+        //------------------------------------- RERENDERING NOTES -------------------------------------
+
+        private void RenderNoteContainers()
+        {
             int x = 0;
             int y = 0;
             int i = 0;
-            
-            while (reader.Read())
+            int noteContainerY = 135;
+
+            foreach (KeyValuePair<int, NoteContainer> entry in m_noteContainerList)
             {
+                Controls.Remove(entry.Value);
+            }
+
+            m_noteContainerList.Clear();
+
+            foreach (KeyValuePair<int, Note> entry in m_noteList)
+            {
+
                 int usedSpace = i * 183 + 23;
                 int freeSpace = Size.Width - usedSpace;
-                
-                note = new Note(reader.GetInt32(0), reader["category"].ToString(), reader["title"].ToString(), reader["color"].ToString());
-                string noteItems = note.Items(m_db.m_dbConnection);
-                noteItems = reader.GetInt32(0).ToString();
                 if (freeSpace > 183)
                 {
                     x = i * 183;
@@ -120,39 +120,44 @@ namespace WindowsKeepApplication
                     i = 1;
                 }
 
-                noteContainer = new NoteContainer(note, new Point(23 + x, noteContainerY + y), noteItems, note.m_id);
-                this.Controls.Add(noteContainer);
-                noteContainerDictionary.Add(reader.GetInt32(0), noteContainer);
-                
+                NoteContainer noteContainer = new NoteContainer(entry.Value, new Point(23 + x, noteContainerY + y), deleteNoteDelegate);
+                Controls.Add(noteContainer);
+                m_noteContainerList.Add(entry.Value.m_id, noteContainer);
             }
-            
-            //noteContainer.noteContainerDeleteButton.Click += new EventHandler(noteContainerDeleteButton_Click);
-
         }
 
-        private void noteContainerDeleteButton_Click(object sender, EventArgs e)
+        // ----------------------------- NOTE OPENER STUFF...:hamburger: ---------------------------------------
+
+        public MetroFramework.Controls.MetroTextBox CreateNoteFormOpener()
         {
+            noteFormOpener = new MetroFramework.Controls.MetroTextBox();
+            noteFormOpener.Location = new Point(23, 63);
+            noteFormOpener.Name = "noteFormOpener";
+            noteFormOpener.Size = new Size(554, 23);
+            noteFormOpener.Click += new EventHandler(noteFormOpener_Click);
+
+
+            noteFormOpener.Text = "Add a note...";
+            return noteFormOpener;
         }
 
-        private void deleteNotes()
+        private void noteFormOpener_Click(object sender, EventArgs e)
         {
-            resetNotes();
-            SQLiteCommand insertSQL = new SQLiteCommand("DELETE FROM notes", m_db.m_dbConnection);
-            insertSQL.ExecuteNonQuery();
+            openForm();
         }
 
-        private void resetNotes()
+        private void openForm()
         {
-            SQLiteCommand selectSQL = new SQLiteCommand("SELECT * FROM notes", m_db.m_dbConnection);
-            SQLiteDataReader reader = selectSQL.ExecuteReader();
-            foreach (KeyValuePair<int, NoteContainer> pair in noteContainerDictionary)
-            {
-                reader.Read();
-                NoteContainer noteContainer = noteContainerDictionary[reader.GetInt32(0)];
-                this.Controls.Remove(noteContainer);
-            }
-            noteContainerDictionary.Clear();
-            retrieveNotes();
+            m_noteCreator.Visible = true;
+            noteFormOpener.Visible = false;
+            m_noteCreator.noteTitle.Focus();
+        }
+
+        private void CloseForm()
+        {
+            m_noteCreator.Visible = false;
+            noteFormOpener.Visible = true;
+            m_noteCreator.noteTitle.Text = "";
         }
     }
 }

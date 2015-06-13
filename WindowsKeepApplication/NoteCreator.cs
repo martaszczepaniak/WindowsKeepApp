@@ -12,21 +12,35 @@ namespace WindowsKeepApplication
 {
     class NoteCreator : GroupBox
     {
+        public MetroFramework.Controls.MetroTextBox noteTitle;
+        public MetroFramework.Controls.MetroTextBox noteText;
+        public MetroFramework.Controls.MetroButton noteSubmitButton;
+        public KeepIt.CreateNoteDelegate NoteCreatorDelegate;
 
-        public NoteCreator()
+        public NoteCreator(KeepIt.CreateNoteDelegate NoteCreatorDelegate)
         {
             SetDefaultAttributes();
             this.Controls.Add(CreateNoteTitleTextBox());
             this.Controls.Add(CreateNoteTextTextBox(0,23,414,38));
+
+            this.NoteCreatorDelegate = NoteCreatorDelegate;
             this.Controls.Add(CreateNoteSubmitButton());
             
             this.noteText.TextChanged += new EventHandler(noteText_TextChanged);
         }
 
-        public MetroFramework.Controls.MetroTextBox noteTitle;
-        public MetroFramework.Controls.MetroTextBox noteText;
-        public MetroFramework.Controls.MetroButton noteSubmitButton;
-        public MetroFramework.Controls.MetroTextBox noteFormOpener;
+        private MetroFramework.Controls.MetroButton CreateNoteSubmitButton()
+        {
+            noteSubmitButton = new MetroFramework.Controls.MetroButton();
+            noteSubmitButton.Location = new Point(414, 23);
+            noteSubmitButton.Name = "noteSubmitButton";
+            noteSubmitButton.Size = new Size(140, 38);
+            noteSubmitButton.UseCustomBackColor = true;
+            noteSubmitButton.BackColor = Color.SkyBlue;
+            noteSubmitButton.Text = "READY";
+            noteSubmitButton.Click += new EventHandler(noteSubmitButton_Click);
+            return noteSubmitButton;
+        }
 
         private void SetDefaultAttributes()
         {
@@ -36,7 +50,7 @@ namespace WindowsKeepApplication
             this.Visible = false;
         }
 
-        public MetroFramework.Controls.MetroTextBox CreateNoteTitleTextBox()
+        private MetroFramework.Controls.MetroTextBox CreateNoteTitleTextBox()
         {
             noteTitle = new MetroFramework.Controls.MetroTextBox();
             noteTitle.Location = new Point(0, 0);
@@ -44,7 +58,8 @@ namespace WindowsKeepApplication
             noteTitle.Size = new Size(554, 23);
             return noteTitle;
         }
-        public MetroFramework.Controls.MetroTextBox CreateNoteTextTextBox(int pointx, int pointy, int sizex, int sizey)
+
+        private MetroFramework.Controls.MetroTextBox CreateNoteTextTextBox(int pointx, int pointy, int sizex, int sizey)
         {
             noteText = new MetroFramework.Controls.MetroTextBox();
             noteText.Location = new Point(pointx, pointy);
@@ -53,34 +68,15 @@ namespace WindowsKeepApplication
             return noteText;
         }
 
-        public MetroFramework.Controls.MetroButton CreateNoteSubmitButton()
-        {
-            noteSubmitButton = new MetroFramework.Controls.MetroButton();
-            noteSubmitButton.Location = new Point(414, 23);
-            noteSubmitButton.Name = "noteSubmitButton";
-            noteSubmitButton.Size = new Size(140, 38);
-            noteSubmitButton.UseCustomBackColor = true;
-            noteSubmitButton.BackColor = Color.SkyBlue;
-            noteSubmitButton.Text = "READY";
-            return noteSubmitButton;
-        }
-
-        public MetroFramework.Controls.MetroTextBox CreateNoteFormOpener()
-        {
-            noteFormOpener = new MetroFramework.Controls.MetroTextBox();
-            noteFormOpener.Location = new Point(23, 63);
-            noteFormOpener.Name = "noteFormOpener";
-            noteFormOpener.Size = new Size(554, 23);
-            
-        
-            noteFormOpener.Text = "Add a note...";
-            return noteFormOpener;
-        }
-
-        public void noteText_TextChanged(object sender, EventArgs e)
+        private void noteText_TextChanged(object sender, EventArgs e)
         {
             this.Size = new Size(554, 99);
             this.Controls.Add(CreateNoteTextTextBox(0, 61, 414, 38));
+        }
+
+        private void noteSubmitButton_Click(object sender, EventArgs e)
+        {
+            this.NoteCreatorDelegate(this.noteTitle.Text);
         }
     }
 }

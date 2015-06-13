@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace WindowsKeepApplication
 {
-    class Item
+    class NoteList : Dictionary<int, Note>
     {
+        public NoteList()
+        {
+            
+        }
     }
 }

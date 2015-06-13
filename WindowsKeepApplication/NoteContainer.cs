@@ -14,18 +14,15 @@ namespace WindowsKeepApplication
     {
         Note m_note;
         Point m_location;
-        public int m_noteContainerId;
-        string m_noteItems;
         public MetroFramework.Controls.MetroButton noteContainerDeleteButton = new MetroFramework.Controls.MetroButton();
+        public KeepIt.DeleteNoteDelegate m_deleteNote;
 
 
-        public NoteContainer(Note note, Point location, string noteItems, int noteContainerId)
+        public NoteContainer(Note note, Point location, KeepIt.DeleteNoteDelegate DeleteNote)
         {
             m_note = note;
             m_location = location;
-            m_noteItems = noteItems;
-            m_noteContainerId = noteContainerId;
-            //m_noteContainerId = m_note.m_id;
+            m_deleteNote = DeleteNote;
 
             SetDefaultAttributes();
             this.Controls.Add(CreateTitleTextBox());
@@ -47,7 +44,6 @@ namespace WindowsKeepApplication
             noteContainerText.Name = "NoteContainerText" + m_note.m_id.ToString();
             noteContainerText.Size = new Size(160, 150);
             noteContainerText.Multiline = true;
-            noteContainerText.Text = m_noteItems;
             return noteContainerText;
         }
 
@@ -67,7 +63,13 @@ namespace WindowsKeepApplication
             noteContainerDeleteButton.Location = new Point(140, 180);
             noteContainerDeleteButton.Name = "noteContainerDeleteButton" + m_note.m_id.ToString();
             noteContainerDeleteButton.Size = new Size(20, 20);
+            noteContainerDeleteButton.Click += new EventHandler(noteDeleteButton_Click);
             return noteContainerDeleteButton;
+        }
+
+        private void noteDeleteButton_Click(object sender, EventArgs e)
+        {
+            m_deleteNote(m_note.m_id);
         }
     }
 
