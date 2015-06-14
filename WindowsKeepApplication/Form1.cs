@@ -16,7 +16,7 @@ namespace WindowsKeepApplication
     {
         DatabaseConnection m_db;
 
-        public delegate void CreateNoteDelegate(string title);
+        public delegate void CreateNoteDelegate(string title, string body);
         public delegate void DeleteNoteDelegate(int noteId);
         private DeleteNoteDelegate deleteNoteDelegate;
 
@@ -45,17 +45,19 @@ namespace WindowsKeepApplication
 
         private void SetDefaultAttributes()
         {
-            ClientSize = new Size(600, 450);
+            ClientSize = new Size(700, 450);
             Name = "KeepIt";
             Text = "KeepIt";
         }
 
         // --------------------------- DELEGATED METHODS --------------------------
 
-        public void CreateNote(string title)
+        public void CreateNote(string title, string body)
         {
-            SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO notes (title) VALUES (?)", m_db.m_dbConnection);
+            Console.WriteLine(body);
+            SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO notes (title, body) VALUES (@title, @body)", m_db.m_dbConnection);
             insertSQL.Parameters.AddWithValue("title", title);
+            insertSQL.Parameters.AddWithValue("body", body);
             insertSQL.ExecuteNonQuery();
             GetNotes();
             RenderNoteContainers();
@@ -72,7 +74,7 @@ namespace WindowsKeepApplication
             while (reader.Read())
             {
 
-                Note note = new Note(reader.GetInt32(0), reader["category"].ToString(), reader["title"].ToString(), reader["color"].ToString());
+                Note note = new Note(reader.GetInt32(0), reader["body"].ToString(), reader["title"].ToString(), reader["color"].ToString());
 
                 m_noteList.Add(reader.GetInt32(0), note);
             }
@@ -106,11 +108,11 @@ namespace WindowsKeepApplication
             foreach (KeyValuePair<int, Note> entry in m_noteList)
             {
 
-                int usedSpace = i * 183 + 23;
+                int usedSpace = i * 223 + 23;
                 int freeSpace = Size.Width - usedSpace;
-                if (freeSpace > 183)
+                if (freeSpace > 223)
                 {
-                    x = i * 183;
+                    x = i * 223;
                     i++;
                 }
                 else

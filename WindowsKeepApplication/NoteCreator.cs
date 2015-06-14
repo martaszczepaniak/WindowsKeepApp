@@ -25,9 +25,8 @@ namespace WindowsKeepApplication
 
             this.NoteCreatorDelegate = NoteCreatorDelegate;
             this.Controls.Add(CreateNoteSubmitButton());
-            
-            this.noteText.TextChanged += new EventHandler(noteText_TextChanged);
         }
+
 
         private MetroFramework.Controls.MetroButton CreateNoteSubmitButton()
         {
@@ -68,15 +67,9 @@ namespace WindowsKeepApplication
             return noteText;
         }
 
-        private void noteText_TextChanged(object sender, EventArgs e)
-        {
-            this.Size = new Size(554, 99);
-            this.Controls.Add(CreateNoteTextTextBox(0, 61, 414, 38));
-        }
-
         private void noteSubmitButton_Click(object sender, EventArgs e)
         {
-            this.NoteCreatorDelegate(this.noteTitle.Text);
+            this.NoteCreatorDelegate(this.noteTitle.Text, this.noteText.Text);
         }
     }
 }
