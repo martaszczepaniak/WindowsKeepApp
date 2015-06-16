@@ -16,9 +16,15 @@ namespace WindowsKeepApplication
     {
         DatabaseConnection m_db;
 
-        public delegate void CreateNoteDelegate(string title, string body);
+        public delegate void CreateNoteDelegate(string title, string body, string color);
         public delegate void DeleteNoteDelegate(int noteId);
+        public delegate void EditNoteDelegate(string title, string body, int id);
+        public delegate void ColorDelegate(string color, int id);
+        public delegate void ReloadDelegate();
+        private ReloadDelegate reloadDelegate;
+        private ColorDelegate colorDelegate;
         private DeleteNoteDelegate deleteNoteDelegate;
+        private EditNoteDelegate editNoteDelegate;
 
         NoteCreator m_noteCreator;
         NoteList m_noteList = new NoteList();
@@ -33,6 +39,9 @@ namespace WindowsKeepApplication
 
             CreateNoteDelegate createNoteDelegate = CreateNote;
             deleteNoteDelegate = DeleteNote;
+            editNoteDelegate = EditNote;
+            colorDelegate = UpdateColors;
+            reloadDelegate = Reload;
 
             m_noteCreator = new NoteCreator(createNoteDelegate);
             Controls.Add(m_noteCreator);
@@ -48,20 +57,30 @@ namespace WindowsKeepApplication
             ClientSize = new Size(700, 450);
             Name = "KeepIt";
             Text = "KeepIt";
+            this.AutoScroll = true;
         }
 
         // --------------------------- DELEGATED METHODS --------------------------
 
-        public void CreateNote(string title, string body)
+        public void CreateNote(string title, string body, string color)
         {
-            Console.WriteLine(body);
-            SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO notes (title, body) VALUES (@title, @body)", m_db.m_dbConnection);
+            SQLiteCommand insertSQL = new SQLiteCommand("INSERT INTO notes (title, body, color) VALUES (@title, @body, @color)", m_db.m_dbConnection);
             insertSQL.Parameters.AddWithValue("title", title);
             insertSQL.Parameters.AddWithValue("body", body);
+            insertSQL.Parameters.AddWithValue("color", color);
             insertSQL.ExecuteNonQuery();
             GetNotes();
             RenderNoteContainers();
             CloseForm();
+        }
+
+        public void EditNote(string title, string body, int id)
+        {
+            SQLiteCommand insertSQL = new SQLiteCommand("UPDATE notes SET title = @title, body = @body WHERE id = @id", m_db.m_dbConnection);
+            insertSQL.Parameters.AddWithValue("title", title);
+            insertSQL.Parameters.AddWithValue("body", body);
+            insertSQL.Parameters.AddWithValue("id", id);
+            insertSQL.ExecuteNonQuery();
         }
 
         private void GetNotes()
@@ -88,7 +107,22 @@ namespace WindowsKeepApplication
             GetNotes();
             RenderNoteContainers();
         }
-        
+
+        private void UpdateColors(string color, int id)
+        {
+            SQLiteCommand insertSQL = new SQLiteCommand("UPDATE notes SET color = @color WHERE id = @id", m_db.m_dbConnection);
+            insertSQL.Parameters.AddWithValue("color", color);
+            insertSQL.Parameters.AddWithValue("id", id);
+            insertSQL.ExecuteNonQuery();
+        }
+
+        private void Reload()
+        {
+            GetNotes();
+            RenderNoteContainers();
+            CloseForm();
+        }
+
         //------------------------------------- RERENDERING NOTES -------------------------------------
 
         private void RenderNoteContainers()
@@ -122,7 +156,7 @@ namespace WindowsKeepApplication
                     i = 1;
                 }
 
-                NoteContainer noteContainer = new NoteContainer(entry.Value, new Point(23 + x, noteContainerY + y), deleteNoteDelegate);
+                NoteContainer noteContainer = new NoteContainer(entry.Value, new Point(23 + x, noteContainerY + y), deleteNoteDelegate, editNoteDelegate, colorDelegate, reloadDelegate);
                 Controls.Add(noteContainer);
                 m_noteContainerList.Add(entry.Value.m_id, noteContainer);
             }
@@ -135,9 +169,8 @@ namespace WindowsKeepApplication
             noteFormOpener = new MetroFramework.Controls.MetroTextBox();
             noteFormOpener.Location = new Point(23, 63);
             noteFormOpener.Name = "noteFormOpener";
-            noteFormOpener.Size = new Size(554, 23);
+            noteFormOpener.Size = new Size(640, 23);
             noteFormOpener.Click += new EventHandler(noteFormOpener_Click);
-
 
             noteFormOpener.Text = "Add a note...";
             return noteFormOpener;
